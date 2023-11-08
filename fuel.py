@@ -25,4 +25,5 @@ def how_much_fuel_in_tank(user_input):
     else:
         return f"{user_input}%"
 
-main()
+if __name__ == "__main__":
+    main()

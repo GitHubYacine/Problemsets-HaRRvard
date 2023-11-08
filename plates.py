@@ -21,4 +21,6 @@ def is_valid(plate):
         elif encountered_end_sequence:
             return False
     return True
-main()
+
+if __name__ == "__main__":
+    main()
