@@ -1,0 +1,45 @@
+import re
+
+def main():
+    finding_puzzle()
+
+def finding_puzzle():
+    calibration_number = 0
+    with open("codeofadvent_puzzleinput.txt") as file:
+        for line in file:
+            if match := re.findall(r"(?=([0-9]|one|two|three|four|five|six|seven|eight|nine))", line):
+                if match[0].isdigit():
+                    digit1 = match[0]
+                if match[-1].isdigit():
+                    digit2 = match[-1] 
+                if not match[0].isdigit() or len(match[0]) == 0:
+                    digit1 = digit_checker(match[0])
+                if not match[-1].isdigit() or len(match[0]) == 0:
+                    digit2 = digit_checker(match[-1])
+                digits = digit1+digit2
+                calibration_number += int(digits)
+        print(calibration_number)
+                
+def digit_checker(digit):
+    if digit == "one":
+        digit = 1
+    elif digit == "two":
+        digit = 2
+    elif digit == "three":
+        digit = 3
+    elif digit == "four":
+        digit = 4
+    elif digit == "five":
+        digit = 5
+    elif digit == "six":
+        digit = 6
+    elif digit == "seven":
+        digit = 7
+    elif digit == "eight":
+        digit = 8
+    elif digit == "nine":
+        digit = 9
+    return str(digit)
+
+if __name__ == "__main__":
+    main()

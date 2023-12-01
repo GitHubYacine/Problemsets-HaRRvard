@@ -1,0 +1,11 @@
+import re
+
+calibration_value = 0
+
+with open("codeofadvent_puzzleinput.txt") as file:
+    for line in file:
+        if match := re.findall(r"[0-9]", line):
+            digits = match[0]+match[-1]
+            calibration_value += int(digits)
+            
+print(calibration_value)
